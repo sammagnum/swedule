@@ -31,8 +31,8 @@ A modern schedule 'command center'.
 ## Login
 1. SWE/Teamlead logs in
   1. Goes to dashboard screen
-    1. Teamlead has an addtional 
-      1. Swe Schedule for week shows on dashboard
+   1. Teamlead has an addtional tab
+    1. Swe Schedule for week shows on dashboard
 1. Swe can request time off
  
 
