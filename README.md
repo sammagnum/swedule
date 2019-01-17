@@ -25,7 +25,7 @@ A modern schedule 'command center'.
 ## Register features:
 1. Teamlead added to application by admin 
   1. Teamlead registers and declares teamnames and its members emails and passwords
-    1. Teamlead enables checkbox if they are also a member
+   1. Teamlead enables checkbox if they are also a member
       1. Teamlead submits registration
       
 ## Login
