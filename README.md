@@ -11,16 +11,16 @@ I would like to design a wep app that allows people to request vacation time and
 A modern schedule 'command center'.
 
 ## Features categories:
-*Register
-*Login
-*SWE
-*Teamlead
-*Manager
-*Schedule
-*Vacation
-*Warning
-*Timezone
-*Import
+* Register
+* Login
+* SWE
+* Teamlead
+* Manager
+* Schedule
+* Vacation
+* Warning
+* Timezone
+* Import
 
 ## Register features:
 1. Teamlead added to application by admin 
