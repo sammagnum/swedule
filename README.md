@@ -98,7 +98,7 @@ A modern schedule 'command center'.
 
 ## View Diagram
 
-![View Diagram] (/images/View Diagram 1.jpg)
+![View Diagram] (/images/View Diagram 1.jpeg)
 
 
 
