@@ -3,7 +3,6 @@ Using this to formulate a plan step by step:
 https://nickjanetakis.com/blog/how-to-start-and-finish-any-web-app-project
 
 ## Brain Dump 
-(Distilled from actual audio recording as detailed in nick's link above :-) )
 I would like to design a wep app that allows people to request vacation time and see their schedule for the upcoming week.Teamleads should be able to approve/deny that request. The request page should be able to show how many request your team has made and the request limit for your team, based on dates. their should be a warning system indicating if folks are reaching their max use for the year. schedule should be based on the timezone of computer and fall back to est. have a dropdown to adjust timezone. you should be able to view your team schedule as well. A primary part of the goal is having a clean interface that does not require notes to view. I also would like to be able to import the current database, but not being able to is not a deal killer. However, teamlead definitely could use an easy way to import. I want to avoid w3 integration for now so will likely,need its on login. I want to add email notification at some point but thats later.
 
 ## Main Goal:
@@ -23,14 +22,6 @@ A modern schedule 'command center'.
 * Timezone
 * Import
 
-## Register
-1. Teamlead added to application by admin 
-1. Teamlead registers and declares teamnames and its members emails and passwords
-   1. Only teamleads should be able to register
-   1. Swe are to be registered by teamleads
-   1. Teamlead enables checkbox if they are also a member (creates a normal swe user seperate from team lead)
-1. Teamlead submits registration
-      
 ## Login
 1. SWE/Teamlead logs in
 1. Taken to dashboard screen
@@ -39,6 +30,14 @@ A modern schedule 'command center'.
    1. schedule may shifts from multiple teams
 1. Swe can request time off
 
+## Register/Create Team
+1. Teamlead added to application by admin 
+1. Teamlead registers and declares teamnames and its members emails and passwords
+   1. Only teamleads should be able to register
+   1. Swe are to be registered by teamleads
+   1. Teamlead enables checkbox if they are also a member (creates a normal swe user seperate from team lead)
+1. Teamlead submits registration
+      
 ## SWE
 1. Can view schedule
    1. In timezone of browser/system
@@ -98,6 +97,8 @@ A modern schedule 'command center'.
 1. need to decide on web import of users or manual via cli, most likely file based
 
 ## Screen Diagram
+
+
 
 ## Data model
    
