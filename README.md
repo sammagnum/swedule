@@ -105,6 +105,7 @@ A modern schedule 'command center'.
 ## Data model
    
 
+[erd reference]https://i.stack.imgur.com/5uwcF.png
 
 
 
