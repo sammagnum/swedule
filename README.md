@@ -96,7 +96,9 @@ A modern schedule 'command center'.
 1. need to create dummy data
 1. need to decide on web import of users or manual via cli, most likely file based
 
-## Screen Diagram
+## View Diagram
+
+![View Diagram] (/images/View Diagram 1.jpg)
 
 
 
