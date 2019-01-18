@@ -54,6 +54,7 @@ A modern schedule 'command center'.
 1. Dashboard shows their schedule if they are a swe
    1. If they are not a swe they see a link to their different teams links lead to team dash board (if they are a swe teamlead link/tab leads here)
 1. has link to 'days off request' that need approval
+1. Add managers to thier profile
 
 ## Team
 1. have a link to add team members if user is a teamlead
@@ -63,9 +64,10 @@ A modern schedule 'command center'.
  
 ## Manager
 1. Manager is a teamlead of all teams with team lead powers turned off, but can be enabled temporarily in manager settings
+1. Manager are added by team leads
 
 ## Admin
-1. will add feature here as need from cli
+1. will add features here as need from cli
 
 ## Schedule
 1. Weekly Team Schedule will appear on team dashboard
@@ -105,7 +107,10 @@ A modern schedule 'command center'.
 ## Data model
    
 
-[erd reference]https://i.stack.imgur.com/5uwcF.png
+![erd reference](https://i.stack.imgur.com/5uwcF.png)
+
+
+![Entity Relationship Diagram](/images/EntityRelationshipDiagram.jpeg)
 
 
 
