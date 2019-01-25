@@ -58,11 +58,11 @@ class Team(models.Model):
 
     def __str__(self):
         """String for representing the Model object."""
-        return self.name
+        return str(self.name)
 
     def get_absolute_url(self):
         """Returns the url to access a particular instance of the model."""
-        return reverse('model-detail-view', args=[self.name])
+        return reverse('model-detail-view', args=str([self.name]))
 
 
 class Manager(models.Model):
@@ -78,16 +78,16 @@ class Manager(models.Model):
 
 
 class Swe(models.Model):
-    user_email = models.OneToOneField(User, on_delete=models.DO_NOTHING, primary_key=True)
+    user_id = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     team = models.ForeignKey("Team", on_delete=models.DO_NOTHING)
 
     def __str__(self):
         """String for representing the Model object."""
-        return self.user_email
+        return str(self.user_id.first_name) + str(self.user_id.last_name)
 
     def get_absolute_url(self):
         """Returns the url to access a particular instance of the model."""
-        return reverse('model-detail-view', args=[str(self.user_email)])
+        return reverse('model-detail-view', args=[str(self.user_id)])
 
 
 class Event(models.Model):
@@ -115,7 +115,7 @@ class Event(models.Model):
 
     def __str__(self):
         """String for representing the Model object."""
-        return self.type
+        return "start: " + str(self.start_time) + " end: " + str(self.end_time)
 
     def get_absolute_url(self):
         """Returns the url to access a particular instance of the model."""
