@@ -1,13 +1,13 @@
-{% extends "base_generic.html" %}
+{% extends "schedule.html" %}
 
-{% block content %}
+{% block swe %}
   <h1>Welcome {{ first_name }}</h1>
   <h3>For the week of Monday {{ monday }} thru Friday {{ friday }}</h3>
 
+    {{ schedule }}
   <ul>
     {% for event in schedule %}
     <li>Shift starts at {{ event.start_time }} and ends at {{ event.end_time }}   </li>
     {% endfor %}
   </ul>
-    <div class="scheduleofswe">{% block schedule %}{% endblock schedule %}</div>
-{% endblock content %}
+{% endblock %}

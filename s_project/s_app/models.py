@@ -78,16 +78,16 @@ class Manager(models.Model):
 
 
 class Swe(models.Model):
-    user_id = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     team = models.ForeignKey("Team", on_delete=models.DO_NOTHING)
 
     def __str__(self):
         """String for representing the Model object."""
-        return str(self.user_id.first_name) + str(self.user_id.last_name)
+        return str(self.user.id)
 
     def get_absolute_url(self):
         """Returns the url to access a particular instance of the model."""
-        return reverse('model-detail-view', args=[str(self.user_id)])
+        return reverse('model-detail-view', args=[str(self.user)])
 
 
 class Event(models.Model):
