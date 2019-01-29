@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="483904b9-aa0a-4ec7-82fb-e08ddd97ca60" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/s_project/s_app/templates/schedule.html.future" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s_project/s_app/templates/schedule.html" beforeDir="false" afterPath="$PROJECT_DIR$/s_project/s_app/templates/schedule.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s_project/s_app/templates/swe.html" beforeDir="false" afterPath="$PROJECT_DIR$/s_project/s_app/templates/swe.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,16 +19,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/s_project/s_app/templates/swe.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="7" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="10" selection-end-column="7" />
+            <state relative-caret-position="90">
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/s_project/s_app/templates/schedule.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
@@ -78,8 +75,8 @@
         <option value="$PROJECT_DIR$/s_project/s_app/migrations/0011_auto_20190128_2157.py" />
         <option value="$PROJECT_DIR$/s_project/s_app/util.py" />
         <option value="$PROJECT_DIR$/s_project/s_app/views.py" />
-        <option value="$PROJECT_DIR$/s_project/s_app/templates/swe.html" />
         <option value="$PROJECT_DIR$/s_project/s_app/templates/schedule.html" />
+        <option value="$PROJECT_DIR$/s_project/s_app/templates/swe.html" />
       </list>
     </option>
   </component>
@@ -295,12 +292,12 @@
       <workItem from="1548291470681" duration="1016000" />
       <workItem from="1548303533727" duration="26031000" />
       <workItem from="1548702053932" duration="730000" />
-      <workItem from="1548711806941" duration="13361000" />
+      <workItem from="1548711806941" duration="13807000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41138000" />
+    <option name="totallyTimeSpent" value="41584000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -313,9 +310,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="824" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25679544" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25679544" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -326,7 +322,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4985694" weight="0.32786885" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4985694" weight="0.32786885" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.490701" visible="true" weight="0.24180327" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.490701" visible="true" weight="0.24180327" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.509299" side_tool="true" visible="true" weight="0.24180327" />
       <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.78612304" weight="0.32786885" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
@@ -538,17 +534,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/s_project/s_app/templates/swe.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="7" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="10" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/s_project/s_app/templates/schedule.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/s_project/s_app/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/s_project/s_app/templates/swe.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
