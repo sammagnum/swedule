@@ -1,5 +1,8 @@
-from django.http import HttpResponseNotFound
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseNotFound, HttpResponseRedirect
 from django.shortcuts import render
+from django.contrib.auth import authenticate,login
+from django.urls import reverse
 
 from .models import Team, Event, Swe
 from django.contrib.auth.models import User
@@ -9,8 +12,16 @@ from s_app.util import get_date_range_m_f
 # Create your views here.
 
 
+@login_required
+def userhome(request):
+    return HttpResponseRedirect(
+               reverse(swe, args=[request.user.username]))
+
+
 def index(request):
     """View function for home page of site."""
+
+
 
     team_cnt = str(Team.objects.all().count())
 
