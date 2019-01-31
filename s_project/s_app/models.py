@@ -3,6 +3,8 @@ import uuid
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
+import pytz
+from timezone_field import TimeZoneField
 # Create your models here.
 
 
@@ -80,6 +82,7 @@ class Manager(models.Model):
 class Swe(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     team = models.ForeignKey("Team", on_delete=models.DO_NOTHING)
+    timezone = TimeZoneField(default="US/Eastern")
 
     def __str__(self):
         """String for representing the Model object."""

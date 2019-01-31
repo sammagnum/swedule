@@ -1,13 +1,16 @@
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseNotFound, HttpResponseRedirect
 from django.shortcuts import render
 from django.contrib.auth import authenticate,login
 from django.urls import reverse
-
+from timezone_field import TimeZoneFormField, forms
+import pytz
 from .models import Team, Event, Swe
 from django.contrib.auth.models import User
 import datetime
 from s_app.util import get_date_range_m_f
+from s_app.forms import TZForm
 
 # Create your views here.
 
@@ -34,13 +37,36 @@ def index(request):
     return render(request, 'index.html', context=context)
 
 
+
 def swe(request, username):
+
+
     work_week = get_date_range_m_f(datetime.date.today() - datetime.timedelta(days=3))
     user = User.objects.get(username=username)
-    sam = Swe.objects.get(user__username=username)
+    swe = Swe.objects.get(user__username=username)
+    tz = swe.timezone
     if user.id != Swe.objects.get(user__username=username).user.id:
-        return HttpResponseNotFound('SWE not found:' + str(user.id) + " " + str(sam.user.id))
+        return HttpResponseNotFound('SWE not found:' + str(user.id) )
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+
+
+        # create a form instance and populate it with data from the request:
+        form = TZForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            form.clean()
+            swe.timezone = form.cleaned_data["timezone"]
+            swe.save()
+
+            messages.success(request,'Your Timezone has been updated')
+            return HttpResponseRedirect(username)
+    else:
+        form = TZForm()
     context = {
+        'user_url': username,
+        'tz': swe.timezone,
+        'form': form,
         'first_name':    user.first_name,
         'monday': work_week[0],
         'friday': work_week[1],
