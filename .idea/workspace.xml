@@ -355,12 +355,12 @@
       <workItem from="1548711806941" duration="14066000" />
       <workItem from="1548960851096" duration="6200000" />
       <workItem from="1549053483299" duration="7312000" />
-      <workItem from="1549326046111" duration="831000" />
+      <workItem from="1549326046111" duration="1033000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37168000" />
+    <option name="totallyTimeSpent" value="37370000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="822" extended-state="0" />
@@ -375,8 +375,8 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4985694" weight="0.32786885" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="7" sideWeight="0.49785408" visible="true" weight="0.32739726" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.48783976" weight="0.24246575" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49785408" weight="0.32739726" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.48783976" visible="true" weight="0.24246575" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.51216024" side_tool="true" weight="0.24180327" />
       <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.7854077" weight="0.32786885" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
