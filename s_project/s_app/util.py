@@ -1,9 +1,10 @@
-import datetime
+from django.utils import timezone
+import pytz
 
+SUNDAY = 6
 
-def get_date_range_m_f(date):
-    dates_monday = date - datetime.timedelta(days=date.weekday())
-    dates_friday = dates_monday + datetime.timedelta(days=5)
-    dates_saturday = dates_monday + datetime.timedelta(days=6)
-    return [dates_monday,dates_friday,dates_saturday]
+def get_date_range(date):
+    dates_monday = date - timezone.timedelta(days=date.weekday())
+    dates_sunday = dates_monday + timezone.timedelta(days=SUNDAY)
+    return [dates_monday,dates_sunday]
 

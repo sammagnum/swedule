@@ -3,21 +3,8 @@
 {% block swe %}
 
     <h1>Welcome {{ first_name }}</h1>
-    <h3>For the week of Monday {{ monday }} thru Friday {{ friday }}</h3>
-    Current time zone: {{ tz }}
+    <h3>For the week of Monday {{ monday }} thru Sunday {{ sunday }}</h3>
 
-    <form action={{ user_url }} method="post">
-        {% csrf_token %}
-        {{ form }}
-
-    </form>
-    {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
 
 
 {% endblock %}

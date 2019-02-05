@@ -84,6 +84,7 @@ class Swe(models.Model):
     team = models.ForeignKey("Team", on_delete=models.DO_NOTHING)
     timezone = TimeZoneField(default="US/Eastern")
 
+
     def __str__(self):
         """String for representing the Model object."""
         return str(self.user.id)
@@ -98,6 +99,9 @@ class Event(models.Model):
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
     swe = models.ForeignKey("Swe", on_delete=models.DO_NOTHING)
+
+    class Meta:
+        ordering = ["start_time"]
 
     TYPE = (
         ('s', 'Shift'),

@@ -1,12 +1,40 @@
 {% extends "base_generic.html" %}
+{% load tz %}
 
 {% block content %}
-{% block swe %}
-{% endblock swe %}
- <ul>
-    {% for event in schedule %}
-    <li>Shift starts at {{ event.start_time }} and ends at {{ event.end_time }}   </li>
-    {% endfor %}
-  </ul>
-    Graphical schedule to come
-{% endblock content%}
+
+    {% block swe %}
+    {% endblock swe %}
+    <div>
+
+        <ul>
+            {% timezone tmz %}
+                {% for event in schedule %}
+                    <li>Shift starts at {{ event.start_time }} and ends at {{ event.end_time }}   </li>
+                {% endfor %}
+            {% endtimezone %}
+                    <li>Graphical schedule to come</li>
+        </ul>
+
+    </div>
+
+    Current time zone: {{ tmz }}
+
+    <form action={{ user_url }} method="post">
+        {% csrf_token %}
+        {{ form }}
+
+    </form>
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+{% endblock content %}
+
+
+
+

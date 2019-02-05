@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="483904b9-aa0a-4ec7-82fb-e08ddd97ca60" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/s_project/s_app/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/s_project/s_app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/s_project/s_app/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/s_project/s_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/s_project/s_app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/s_project/s_app/templates/schedule.html" beforeDir="false" afterPath="$PROJECT_DIR$/s_project/s_app/templates/schedule.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/s_project/s_app/templates/swe.html" beforeDir="false" afterPath="$PROJECT_DIR$/s_project/s_app/templates/swe.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/s_project/s_app/util.py" beforeDir="false" afterPath="$PROJECT_DIR$/s_project/s_app/util.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/s_project/s_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/s_project/s_app/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s_project/s_project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/s_project/s_project/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,20 +39,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/s_project/s_app/templates/swe.html">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/s_project/s_project/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="14" lean-forward="true" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
+            <state relative-caret-position="415">
+              <caret line="28" selection-start-line="28" selection-end-line="28" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/s_project/s_app/templates/swe.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/s_project/s_app/templates/schedule.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="50" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/s_project/s_app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="421">
-              <caret line="71" column="31" lean-forward="true" selection-start-line="71" selection-start-column="31" selection-end-line="71" selection-end-column="31" />
+            <state relative-caret-position="277">
+              <caret line="73" column="50" selection-start-line="73" selection-start-column="50" selection-end-line="73" selection-end-column="50" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -60,10 +79,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/s_project/s_app/util.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+              <folding>
+                <element signature="e#0#33#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/s_project/s_app/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="240">
+              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
               <folding>
                 <element signature="e#42#66#0" expanded="true" />
               </folding>
@@ -109,8 +140,6 @@
         <option value="$PROJECT_DIR$/s_project/s_app/migrations/0003_auto_20190125_0009.py" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.py" />
         <option value="$PROJECT_DIR$/s_project/s_app/migrations/0011_auto_20190128_2157.py" />
-        <option value="$PROJECT_DIR$/s_project/s_app/util.py" />
-        <option value="$PROJECT_DIR$/s_project/s_app/templates/schedule.html" />
         <option value="$PROJECT_DIR$/s_project/s_app/urls.py" />
         <option value="$PROJECT_DIR$/s_project/templates/registration/logout.html" />
         <option value="$PROJECT_DIR$/s_project/dontreadme.txt" />
@@ -119,17 +148,19 @@
         <option value="$PROJECT_DIR$/s_project/templates/registration/login.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/s_project/s_project/settings.py" />
-        <option value="$PROJECT_DIR$/s_project/s_app/models.py" />
         <option value="$PROJECT_DIR$/s_project/s_app/forms.py" />
-        <option value="$PROJECT_DIR$/s_project/s_app/templates/swe.html" />
+        <option value="$PROJECT_DIR$/s_project/s_app/util.py" />
+        <option value="$PROJECT_DIR$/s_project/s_app/models.py" />
         <option value="$PROJECT_DIR$/s_project/s_app/views.py" />
+        <option value="$PROJECT_DIR$/s_project/s_app/templates/swe.html" />
+        <option value="$PROJECT_DIR$/s_project/s_app/templates/schedule.html" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="824" />
+    <option name="height" value="822" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -148,12 +179,6 @@
               <item name="swedule" type="b2602c69:ProjectViewProjectNode" />
               <item name="s_project" type="462c0819:PsiDirectoryNode" />
               <item name="s_app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="swedule" type="b2602c69:ProjectViewProjectNode" />
-              <item name="s_project" type="462c0819:PsiDirectoryNode" />
-              <item name="s_app" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="swedule" type="b2602c69:ProjectViewProjectNode" />
@@ -328,18 +353,19 @@
       <workItem from="1548303533727" duration="26031000" />
       <workItem from="1548702053932" duration="730000" />
       <workItem from="1548711806941" duration="14066000" />
-      <workItem from="1548960851096" duration="5254000" />
+      <workItem from="1548960851096" duration="6200000" />
+      <workItem from="1549053483299" duration="7312000" />
+      <workItem from="1549326046111" duration="831000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28079000" />
+    <option name="totallyTimeSpent" value="37168000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="824" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1440" height="822" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26037195" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26752505" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -349,9 +375,9 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4985694" weight="0.32786885" />
-      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49785408" weight="0.32786885" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.48855507" visible="true" weight="0.24180327" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5114449" side_tool="true" visible="true" weight="0.24180327" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="7" sideWeight="0.49785408" visible="true" weight="0.32739726" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.48783976" weight="0.24246575" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.51216024" side_tool="true" weight="0.24180327" />
       <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.7854077" weight="0.32786885" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run Dashboard" order="12" sideWeight="0.9048641" weight="0.32786885" />
@@ -362,6 +388,30 @@
       <window_info anchor="right" id="SciView" order="3" />
       <window_info anchor="right" id="Database" order="4" weight="0.13376252" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2639485" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49928468" weight="0.32891566" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4985694" weight="0.32891566" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4985694" weight="0.32786885" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49785408" weight="0.32786885" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.48783976" visible="true" weight="0.24180327" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.51216024" side_tool="true" visible="true" weight="0.24180327" />
+      <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.7854077" weight="0.32786885" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run Dashboard" order="12" sideWeight="0.9048641" weight="0.32786885" />
+      <window_info anchor="bottom" id="Database Changes" order="13" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="3" />
+      <window_info anchor="right" id="Database" order="4" weight="0.13376252" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -383,9 +433,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/s_project/s_app/tests.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/s_project/s_app/util.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/s_project/s_app/urls.py">
@@ -447,23 +494,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/s_project/s_app/templates/schedule.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/lib/python3.6/site-packages/django/forms/fields.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/s_project/s_app/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="84" column="37" selection-start-line="84" selection-start-column="37" selection-end-line="84" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -474,37 +508,71 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/s_project/s_project/settings.py">
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.6/site-packages/django/db/models/fields/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="37" column="27" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="27" />
+        <state relative-caret-position="176">
+          <caret line="1362" selection-start-line="1362" selection-end-line="1362" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/s_project/s_app/templates/swe.html">
+    <entry file="file://$PROJECT_DIR$/s_project/s_app/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="14" lean-forward="true" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
+        <state relative-caret-position="523">
+          <caret line="103" column="31" selection-start-line="103" selection-start-column="31" selection-end-line="103" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/s_project/s_app/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="240">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
           <folding>
             <element signature="e#42#66#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/s_project/s_app/util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/s_project/s_app/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="71" column="31" lean-forward="true" selection-start-line="71" selection-start-column="31" selection-end-line="71" selection-end-column="31" />
+        <state relative-caret-position="277">
+          <caret line="73" column="50" selection-start-line="73" selection-start-column="50" selection-end-line="73" selection-end-column="50" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/s_project/s_app/templates/schedule.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="50" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/s_project/s_app/templates/swe.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/s_project/s_project/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
         </state>
       </provider>
     </entry>

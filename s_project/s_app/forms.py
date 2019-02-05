@@ -14,7 +14,7 @@ class TZForm(forms.Form):
         'US/Hawaii',
         'US/Mountain',
         'US/Pacific',
-        'Philippines/Manila',
+        'Asia/Manila',
     ]
 
     timezone = TimeZoneFormField( choices=[(tz, tz) for tz in IBM_TZS],

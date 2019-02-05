@@ -9,8 +9,9 @@ import pytz
 from .models import Team, Event, Swe
 from django.contrib.auth.models import User
 import datetime
-from s_app.util import get_date_range_m_f
+from s_app.util import get_date_range
 from s_app.forms import TZForm
+from django.utils import timezone
 
 # Create your views here.
 
@@ -41,10 +42,11 @@ def index(request):
 def swe(request, username):
 
 
-    work_week = get_date_range_m_f(datetime.date.today() - datetime.timedelta(days=3))
     user = User.objects.get(username=username)
     swe = Swe.objects.get(user__username=username)
     tz = swe.timezone
+    timezone.activate(tz)
+    work_week = get_date_range(timezone.now())
     if user.id != Swe.objects.get(user__username=username).user.id:
         return HttpResponseNotFound('SWE not found:' + str(user.id) )
     # if this is a POST request we need to process the form data
@@ -65,13 +67,13 @@ def swe(request, username):
         form = TZForm()
     context = {
         'user_url': username,
-        'tz': swe.timezone,
+        'tmz': swe.timezone,
         'form': form,
         'first_name':    user.first_name,
-        'monday': work_week[0],
-        'friday': work_week[1],
+        'monday': '{:%m/%d/%Y}'.format(work_week[0]),
+        'sunday': '{:%m/%d/%Y}'.format(work_week[1]),
         'schedule': Event.objects.filter(swe__user_id=user.id, start_time__gte=work_week[0],
-                                         start_time__lte=work_week[2])
+                                         start_time__lte=work_week[1])
     }
     return render(request, 'swe.html', context=context)
 
