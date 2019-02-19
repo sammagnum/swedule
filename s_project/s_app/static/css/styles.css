@@ -3,3 +3,90 @@
     padding: 0;
     list-style: none;
 }
+
+ul {list-style-type: none;}
+body {font-family: Verdana, sans-serif;}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.weektitle {
+  padding: 70px 25px;
+  width: 100%;
+  background: #1abc9c;
+  text-align: center;
+}
+
+/* weektitle list */
+.weektitle ul {
+  margin: 0;
+  padding: 0;
+}
+
+.weektitle ul li {
+  color: white;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.weektitle .prev {
+  float: left;
+  padding-top: 10px;
+}
+
+.weektitle .next {
+  float: right;
+  padding-top: 10px;
+}
+
+
+.weekdays {
+  margin: 0;
+  padding: 0px;
+  background-color: #eee;
+  text-align: center;
+
+}
+
+.weekdays li {
+  display: inline-block;
+  width: 6.333%;
+  color: #777;
+  text-align: center;
+
+}
+
+.labels {
+  background-color: #ddd;
+}
+
+.labels li {
+  color: #666;
+
+}
+
+
+.weekdays li .active {
+  padding: 0% 50%;
+  background: #1abc9c;
+  position: relative;
+  color: white !important
+}
+
+.weekdays li .active#hi {
+
+  right: 10px;
+
+}
+
+.weekdays li .active#lo {
+
+  right: 5px;
+
+}

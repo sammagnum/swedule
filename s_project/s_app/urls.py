@@ -1,9 +1,14 @@
-from django.urls import path, include
+from django.urls import path, include, register_converter
+
+from s_app import converters
 from . import views
 
+register_converter(converters.DateConverter, 'dd-mm-yyyy')
 urlpatterns = [
     path('', views.index, name='index'),
-    path('swe/<str:username>', views.swe, name='swe'),
+    path('swe/<str:username>/', views.swe, name='swe'),
+    path('swe/<str:username>/<dd-mm-yyyy:date>/', views.swe, name='next_week'),
+
     path('userhome/', views.userhome, name='userhome')
 ]
 

@@ -1,26 +1,58 @@
 {% extends "base_generic.html" %}
 {% load tz %}
+{% load my_tags %}
 
 {% block content %}
 
     {% block swe %}
     {% endblock swe %}
-    <div>
-
+    <div class="weektitle">
         <ul>
-            {% timezone tmz %}
-                {% for event in schedule %}
-                    <li>Shift starts at {{ event.start_time }} and ends at {{ event.end_time }}   </li>
-                {% endfor %}
-            {% endtimezone %}
-                    <li>Graphical schedule to come</li>
-        </ul>
+            <li class="prev">&#10094;</li>
 
+            <li class="next"><a href="{% url 'next_week' user_url next_weeks_date %}">&#10095;</a> </li>
+            <li>Week of Monday {{ monday }} thru Sunday {{ sunday }}<br></li>
+        </ul>
     </div>
+    {{ schedule }}
+    <ul class="weekdays">
+        {% for day in dow %}
+            <li class="labels">{{ day }}</li>
+            {% for i in range_i %}
+                {% cycle 'False' 'True' as flag silent %}
+
+                {% for event in schedule %}
+
+
+                    {% if i >= event.start_time|date:'G'|add:"0"  and i < event.end_time|date:'G'|add:"0" and day == event.start_time|date:'D' %}
+
+
+                        <li>
+                            <span class="active" {% if i|fixtime > 9 %}  id="hi" {% else %} id="lo"  {% endif %}> {{ i|fixtime }}</span>
+                        </li>
+                        {% cycle flag %}
+
+                    {% endif %}
+
+
+
+                {% endfor %}
+                {% if flag == 'False' %}
+                        <li>
+                        {{ i|fixtime }}
+                        </li>
+                        {% cycle flag %}
+                {% endif %}
+            {% endfor %}
+
+        {% endfor %}
+    </ul>
+
+
+
 
     Current time zone: {{ tmz }}
-
-    <form action={{ user_url }} method="post">
+    <form  method="post">
         {% csrf_token %}
         {{ form }}
 
