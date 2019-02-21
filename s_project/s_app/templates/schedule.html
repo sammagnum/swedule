@@ -8,13 +8,24 @@
     {% endblock swe %}
     <div class="weektitle">
         <ul>
-            <li class="prev">&#10094;</li>
+            <li class="prev">
+                <a href="{% url 'prev_week' user_url prev_weeks_date %}">&#10094;</a>
+            </li>
 
-            <li class="next"><a href="{% url 'next_week' user_url next_weeks_date %}">&#10095;</a> </li>
+            <li class="next">
+                <a href="{% url 'next_week' user_url next_weeks_date %}">&#10095;</a>
+            </li>
             <li>Week of Monday {{ monday }} thru Sunday {{ sunday }}<br></li>
+
         </ul>
     </div>
-    {{ schedule }}
+    <ul class="hour_labels">
+        {% for i in range_i %}
+            <li>
+            {{ i|fixtime }}
+            </li>
+        {% endfor %}
+    </ul>
     <ul class="weekdays">
         {% for day in dow %}
             <li class="labels">{{ day }}</li>
@@ -51,7 +62,7 @@
 
 
 
-    Current time zone: {{ tmz }}
+
     <form  method="post">
         {% csrf_token %}
         {{ form }}
@@ -64,6 +75,7 @@
             {% endfor %}
         </ul>
     {% endif %}
+    {{ schedule }}
 
 {% endblock content %}
 

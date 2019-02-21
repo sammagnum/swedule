@@ -8,11 +8,9 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('swe/<str:username>/', views.swe, name='swe'),
     path('swe/<str:username>/<dd-mm-yyyy:date>/', views.swe, name='next_week'),
+    path('swe/<str:username>/<dd-mm-yyyy:date>/', views.swe, name='prev_week'),
+    path('userhome/', views.userhome, name='userhome'),
 
-    path('userhome/', views.userhome, name='userhome')
-]
-
-#Add Django site authentication urls (for login, logout, password management)
-urlpatterns += [
+    # Add Django site authentication urls (for login, logout, password management)
     path('accounts/', include('django.contrib.auth.urls')),
 ]

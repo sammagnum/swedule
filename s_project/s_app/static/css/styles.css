@@ -46,7 +46,7 @@ html {
 }
 
 
-.weekdays {
+.weekdays{
   margin: 0;
   padding: 0px;
   background-color: #eee;
@@ -57,7 +57,8 @@ html {
 .weekdays li {
   display: inline-block;
   width: 6.333%;
-  color: #777;
+  /*color: #777;*/
+  color: #eee;
   text-align: center;
 
 }
@@ -76,7 +77,8 @@ html {
   padding: 0% 50%;
   background: #1abc9c;
   position: relative;
-  color: white !important
+  /*color: white !important;*/
+  color: #1abc9c;
 }
 
 .weekdays li .active#hi {
@@ -89,4 +91,22 @@ html {
 
   right: 5px;
 
+}
+
+.hour_labels{
+  margin: 0;
+  padding: 0px;
+  background-color: #eee;
+  text-align: center;
+}
+
+.hour_labels li {
+  display: inline-block;
+  width: 6.333%;
+  color: #777;
+  text-align: center;
+}
+
+.weekdays .labels{
+  color: #666666;
 }

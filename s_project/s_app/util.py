@@ -27,3 +27,15 @@ def get_na_start_of_day(t_zone):
 def _next(current):
     date = current + timezone.timedelta(weeks=1)
     return date
+
+
+def _prev(current):
+    date = current - timezone.timedelta(weeks=1)
+    return date
+
+
+def set_timezone(request, new_timezone):
+    request.session['django_timezone'] = new_timezone
+
+def get_timezone(request):
+    return request.session['django_timezone']

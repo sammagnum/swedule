@@ -9,7 +9,7 @@ import pytz
 from .models import Team, Event, Swe
 from django.contrib.auth.models import User
 import datetime
-from s_app.util import get_date_range, get_na_start_of_day, _next
+from s_app.util import get_date_range, get_na_start_of_day, _next, _prev, set_timezone
 from s_app.forms import TZForm
 from django.utils import timezone
 
@@ -37,12 +37,13 @@ def index(request):
     # Render the HTML template index.html with the data in the context variable
     return render(request, 'index.html', context=context)
 
-
+@login_required
 def swe(request, username, date=None):
 
     user = User.objects.get(username=username)
     swe = Swe.objects.get(user__username=username)
     tz = swe.timezone
+    set_timezone(request, str(tz))
     timezone.activate(tz)
     if date is not None:
         current = timezone.make_aware(datetime.datetime.combine(date, datetime.datetime.min.time()), tz, True)
@@ -60,24 +61,26 @@ def swe(request, username, date=None):
 
         # create a form instance and populate it with data from the request:
         form = TZForm(request.POST)
+        #form = TZForm(resque)
         # check whether it's valid:
         if form.is_valid():
             form.clean()
             swe.timezone = form.cleaned_data["timezone"]
+            set_timezone(request,str(swe.timezone))
             swe.save()
-            print(request.get_full_path())
             messages.success(request,'Your Timezone has been updated')
             return HttpResponseRedirect(request.get_full_path())
         else:
             print(form.errors)
     else:
-        form = TZForm()
+        form = TZForm(initial={'timezone': str(tz)})
     morning = get_na_start_of_day(str(tz))
     days_of_week=[
         "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"
     ]
 
     next_week = _next(current)
+    prev_week = _prev(current)
 
 
     context = {
@@ -86,6 +89,7 @@ def swe(request, username, date=None):
         'form': form,
         'first_name':    user.first_name,
         'next_weeks_date': str(next_week).split(" ")[0],
+        'prev_weeks_date': str(prev_week).split(" ")[0],
         'monday': '{:%m/%d/%Y}'.format(work_week[0]),
         'sunday': '{:%m/%d/%Y}'.format(work_week[1]),
         'schedule': Event.objects.filter(swe__user_id=user.id, start_time__gte=work_week[0],
@@ -94,7 +98,7 @@ def swe(request, username, date=None):
         'dow': days_of_week
 
     }
-    timezone.deactivate()
+    #timezone.deactivate()
     return render(request, 'swe.html', context=context)
 
 

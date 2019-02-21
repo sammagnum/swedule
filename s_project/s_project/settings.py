@@ -123,3 +123,10 @@ STATIC_URL = '/static/'
 
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
 LOGIN_REDIRECT_URL = '/s_app/userhome/'
+
+#URL for logging in, needed when hitting url and not autheticated
+LOGIN_URL = '/s_app/accounts/login'
+
+
+# Sets Session expiration to 10 minutes
+SESSION_COOKIE_AGE = 10*60
