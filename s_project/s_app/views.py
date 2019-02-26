@@ -1,17 +1,18 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseNotFound, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect, HttpRequest, HttpResponseForbidden
 from django.shortcuts import render
-from django.contrib.auth import authenticate,login
+from django.contrib.auth import authenticate, login
 from django.urls import reverse
 from timezone_field import TimeZoneFormField, forms
 import pytz
-from .models import Team, Event, Swe
+from .models import Team, Event, Swe, Teamlead
 from django.contrib.auth.models import User
 import datetime
-from s_app.util import get_date_range, get_na_start_of_day, _next, _prev, set_timezone
+from s_app.util import get_date_range, get_na_start_of_day, _next, _prev, set_timezone, get_swe, swe_post, swe_not_post
 from s_app.forms import TZForm
 from django.utils import timezone
+
 
 # Create your views here.
 
@@ -19,13 +20,11 @@ from django.utils import timezone
 @login_required
 def userhome(request):
     return HttpResponseRedirect(
-               reverse(swe, args=[request.user.username]))
+        reverse(swe, args=[request.user.username]))
 
 
 def index(request):
     """View function for home page of site."""
-
-
 
     team_cnt = str(Team.objects.all().count())
 
@@ -37,71 +36,38 @@ def index(request):
     # Render the HTML template index.html with the data in the context variable
     return render(request, 'index.html', context=context)
 
+
+@login_required
+def team(request,team_slug):
+    team_members = Swe.objects.filter(team__slug=team_slug)
+    for member in team_members:
+        member_context = get_swe()
+    return HttpResponse(team_members)
+
+
+@login_required
+def teamlead(request):
+    this_user = request.user.id
+    if Teamlead.objects.filter(user__exact=this_user):  # team view for teamleads
+
+        team_this_user_leads = Team.objects.filter(lead__exact=this_user)
+        team_slug=team_this_user_leads[0].slug
+        old_path = request.get_full_path()
+        new_path = old_path.replace("lead/", "/" + str(team_slug))
+
+        return HttpResponseRedirect(new_path)
+    else:  # not a teamlead
+        return HttpResponseForbidden("You made a wrong turn, you do not have access to this page.")
+
+
 @login_required
 def swe(request, username, date=None):
-
-    user = User.objects.get(username=username)
-    swe = Swe.objects.get(user__username=username)
-    tz = swe.timezone
-    set_timezone(request, str(tz))
-    timezone.activate(tz)
-    if date is not None:
-        current = timezone.make_aware(datetime.datetime.combine(date, datetime.datetime.min.time()), tz, True)
-        current = current.replace(tzinfo=timezone.utc)
-    if date is None:
-        current = timezone.now()
-        current = current.replace(hour=0, minute=0, second=0, microsecond=0)
-
-    work_week = get_date_range(current)
-    if user.id != Swe.objects.get(user__username=username).user.id:
-        return HttpResponseNotFound('SWE not found:' + str(user.id) )
-    # if this is a POST request we need to process the form data
+    context = get_swe(request,username,date)
     if request.method == 'POST':
-
-
-        # create a form instance and populate it with data from the request:
-        form = TZForm(request.POST)
-        #form = TZForm(resque)
-        # check whether it's valid:
-        if form.is_valid():
-            form.clean()
-            swe.timezone = form.cleaned_data["timezone"]
-            set_timezone(request,str(swe.timezone))
-            swe.save()
-            messages.success(request,'Your Timezone has been updated')
-            return HttpResponseRedirect(request.get_full_path())
-        else:
-            print(form.errors)
+        return HttpResponseRedirect(swe_post(request, context['swe']).get_full_path())
     else:
-        form = TZForm(initial={'timezone': str(tz)})
-    morning = get_na_start_of_day(str(tz))
-    days_of_week=[
-        "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"
-    ]
+        context['form'] = swe_not_post(context['tmz'])
 
-    next_week = _next(current)
-    prev_week = _prev(current)
-
-
-    context = {
-        'user_url': username,
-        'tmz': swe.timezone,
-        'form': form,
-        'first_name':    user.first_name,
-        'next_weeks_date': str(next_week).split(" ")[0],
-        'prev_weeks_date': str(prev_week).split(" ")[0],
-        'monday': '{:%m/%d/%Y}'.format(work_week[0]),
-        'sunday': '{:%m/%d/%Y}'.format(work_week[1]),
-        'schedule': Event.objects.filter(swe__user_id=user.id, start_time__gte=work_week[0],
-                                         start_time__lte=work_week[1]),
-        'range_i': range(morning,morning+13),
-        'dow': days_of_week
-
-    }
-    #timezone.deactivate()
     return render(request, 'swe.html', context=context)
 
-
-#def swe(request):
-    #return render(request, 'swe.html')
 

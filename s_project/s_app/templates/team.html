@@ -1,25 +1,100 @@
-{% extends "schedule.html" %}
+{% extends "base_generic.html" %}
+{% load tz %}
+{% load my_tags %}
 
-{% block team %}
-
-    <h1> {{ team_name }}</h1>
-
-<div class="weektitle">
-  <ul>
-    <li class="prev">&#10094;</li>
-    <li class="next">&#10095;</li>
-    <li>Week of Monday {{ monday }} thru Sunday {{ sunday }}<br><span style="font-size:18px">2017</span></li>
-  </ul>
-</div>
+{% block content %}
 
 
-<ul class="weekdays">
-  <li>Mo</li>
-  <li>Tu</li>
-  <li>We</li>
-  <li>Th</li>
-  <li>Fr</li>
-  <li>Sa</li>
-  <li>Su</li>
-</ul>
-{% endblock %}
+    <div class="weektitle">
+        <ul>
+            <li class="prev">
+                <a href="{% url 'prev_week' user_url prev_weeks_date %}">&#10094;</a>
+            </li>
+
+            <li class="next">
+                <a href="{% url 'next_week' user_url next_weeks_date %}">&#10095;</a>
+            </li>
+            <li>Week of Monday {{ monday }} thru Sunday {{ sunday }}<br></li>
+
+        </ul>
+    </div>
+    <div class="day_title">
+        <ul>
+            <li class="prev">
+                <a href="{% url 'prev_week' user_url prev_weeks_date %}">&#10094;</a>
+            </li>
+
+            <li class="next">
+                <a href="{% url 'next_week' user_url next_weeks_date %}">&#10095;</a>
+            </li>
+            <li>Week of Monday {{ monday }} thru Sunday {{ sunday }}<br></li>
+
+        </ul>
+    </div>
+    <ul class="hour_labels">
+        {% for i in range_i %}
+            <li>
+            {{ i|fixtime }}
+            </li>
+        {% endfor %}
+    </ul>
+    <ul class="weekdays">
+        {% for day in dow %}
+            <li class="labels">{{ day }}</li>
+            {% for i in range_i %}
+                {% cycle 'False' 'True' as flag silent %}
+
+                {% for event in schedule %}
+
+
+                    {% if i >= event.start_time|date:'G'|add:"0"  and i < event.end_time|date:'G'|add:"0" and day == event.start_time|date:'D' %}
+
+
+                        <li>
+                            <span class="active" {% if i|fixtime > 9 %}  id="hi" {% else %} id="lo"  {% endif %}> {{ i|fixtime }}</span>
+                        </li>
+                        {% cycle flag %}
+
+                    {% endif %}
+
+
+
+                {% endfor %}
+                {% if flag == 'False' %}
+                        <li>
+                        {{ i|fixtime }}
+                        </li>
+                        {% cycle flag %}
+                {% endif %}
+            {% endfor %}
+
+        {% endfor %}
+    </ul>
+
+
+
+
+
+    <form  method="post">
+        {% csrf_token %}
+        {{ form }}
+
+    </form>
+
+    {% if is_teamlead %}
+        <p><a href=" url 'teamlead_url' 'team_name'"> </a>a</p>
+    {% endif %}
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {{ schedule }}
+
+{% endblock content %}
+
+
+
+

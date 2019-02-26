@@ -68,6 +68,10 @@
         {{ form }}
 
     </form>
+
+    {% if is_teamlead %}
+        <p><a href="{% url 'teamlead_url' %}" >Click here to manage team schedules... </a></p>
+    {% endif %}
     {% if messages %}
         <ul class="messages">
             {% for message in messages %}

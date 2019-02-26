@@ -43,20 +43,22 @@ class Request(models.Model):
 
 
 class Teamlead(models.Model):
-    user_email = models.OneToOneField(User, on_delete=models.DO_NOTHING, primary_key=True)
+    user = models.OneToOneField(User, on_delete=models.DO_NOTHING, primary_key=True)
 
     def __str__(self):
         """String for representing the Model object."""
-        return str(self.user_email)
+        return str(self.user)
 
     def get_absolute_url(self):
         """Returns the url to access a particular instance of the model."""
-        return reverse('model-detail-view', args=[str(self.user_email)])
+        return reverse('model-detail-view', args=[str(self.user)])
 
 
 class Team(models.Model):
+
     name = models.CharField(primary_key=True, max_length=64)
     lead = models.ForeignKey("Teamlead", on_delete=models.DO_NOTHING)
+    slug = models.SlugField()
 
     def __str__(self):
         """String for representing the Model object."""
@@ -87,7 +89,7 @@ class Swe(models.Model):
 
     def __str__(self):
         """String for representing the Model object."""
-        return str(self.user.id)
+        return str(self.user)
 
     def get_absolute_url(self):
         """Returns the url to access a particular instance of the model."""
