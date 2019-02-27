@@ -6,6 +6,7 @@ from django.utils import timezone
 from s_app.forms import TZForm
 from s_app.models import Swe,Event,Teamlead
 
+import pytz
 import datetime
 
 SUNDAY = 6
@@ -31,15 +32,23 @@ def get_na_start_of_day(t_zone):
     return h[t_zone]
 
 
-def _next(current):
+def _next_w(current):
     date = current + timezone.timedelta(weeks=1)
     return date
 
 
-def _prev(current):
+def _prev_w(current):
     date = current - timezone.timedelta(weeks=1)
     return date
 
+def _next_d(current):
+    date = current + timezone.timedelta(weeks=1)
+    return date
+
+
+def _prev_d(current):
+    date = current - timezone.timedelta(weeks=1)
+    return date
 
 def set_timezone(request, new_timezone):
     request.session['django_timezone'] = new_timezone
@@ -49,46 +58,48 @@ def get_timezone(request):
     return request.session['django_timezone']
 
 
-def get_swe(request,username,date = None):
-    user = User.objects.get(username=username)
-    swe = Swe.objects.get(user__username=username)
-    tz = swe.timezone
-    set_timezone(request, str(tz))
-    timezone.activate(tz)
+def configure_timezone_aware(date, tz):
     if date is not None:
-        current = timezone.make_aware(datetime.datetime.combine(date, datetime.datetime.min.time()), tz, True)
+        current = timezone.make_aware(datetime.datetime.combine(date, datetime.datetime.min.time()), pytz.timezone(tz), True)
         current = current.replace(tzinfo=timezone.utc)
     if date is None:
         current = timezone.now()
         current = current.replace(hour=0, minute=0, second=0, microsecond=0)
+    return current
 
-    work_week = get_date_range(current)
+
+def get_swe(request,username,date = None):
+    context = get_shared_calendar_context(request, date)
+    work_week = context['work_week']
+    user = User.objects.get(username=username)
+    swe = Swe.objects.get(user__username=username)
     if user.id != Swe.objects.get(user__username=username).user.id:
         return HttpResponseNotFound('SWE not found:' + str(user.id))
+    context['user_url'] = username
+    context['swe'] = swe
+    context['first_name'] = user.first_name
+    context['schedule'] = Event.objects.filter(swe__user_id=user.id, start_time__gte=work_week[0],start_time__lte=work_week[1])
+    context['is_teamlead'] = Teamlead.objects.filter(user__exact=request.user.id).exists()
+    return context
 
+
+def get_shared_calendar_context(request,date):
+    tz = get_timezone(request)
+    current = configure_timezone_aware(date, tz)
+    work_week = get_date_range(current)
     morning = get_na_start_of_day(str(tz))
     days_of_week = [
         "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"
     ]
-
-    next_week = _next(current)
-    prev_week = _prev(current)
-
     context = {
-        'user_url': username,
-        'tmz': swe.timezone,
-        'swe': swe,
-        'first_name': user.first_name,
-        'next_weeks_date': str(next_week).split(" ")[0],
-        'prev_weeks_date': str(prev_week).split(" ")[0],
+        'today': '{:%A %d}'.format(current),
+        'next_weeks_date': str(_next_w(current)).split(" ")[0],
+        'prev_weeks_date': str(_prev_w(current)).split(" ")[0],
+        'work_week': work_week,
         'monday': '{:%m/%d/%Y}'.format(work_week[0]),
         'sunday': '{:%m/%d/%Y}'.format(work_week[1]),
-        'schedule': Event.objects.filter(swe__user_id=user.id, start_time__gte=work_week[0],
-                                         start_time__lte=work_week[1]),
         'range_i': range(morning, morning + 13),
-        'dow': days_of_week,
-        'is_teamlead': Teamlead.objects.filter(user__exact=request.user.id).exists()
-
+        'dow': days_of_week
     }
     return context
 
@@ -110,5 +121,5 @@ def swe_post(request,swe):
     return request
 
 
-def swe_not_post(tz):
-    return TZForm(initial={'timezone': str(tz)})
+def swe_not_post(request):
+    return TZForm(initial={'timezone': str(get_timezone(request))})

@@ -9,7 +9,8 @@ import pytz
 from .models import Team, Event, Swe, Teamlead
 from django.contrib.auth.models import User
 import datetime
-from s_app.util import get_date_range, get_na_start_of_day, _next, _prev, set_timezone, get_swe, swe_post, swe_not_post
+from s_app.util import get_date_range, get_na_start_of_day, _next_w, _prev_w, set_timezone, get_swe, swe_post, swe_not_post, \
+    configure_timezone_aware, get_shared_calendar_context
 from s_app.forms import TZForm
 from django.utils import timezone
 
@@ -38,11 +39,19 @@ def index(request):
 
 
 @login_required
-def team(request,team_slug):
+def team(request,team_slug, date=None):
     team_members = Swe.objects.filter(team__slug=team_slug)
+    context = get_shared_calendar_context(request,date)
+    context['team_slug'] = team_slug
+    context
     for member in team_members:
-        member_context = get_swe()
-    return HttpResponse(team_members)
+        username = member.user.username
+        context[username] = get_swe(request, username, date)
+    out = ()
+    for i in context:
+        out += i, context[i]
+    #return HttpResponse(out)
+    return render(request, 'team.html', context=context)
 
 
 @login_required
@@ -62,11 +71,12 @@ def teamlead(request):
 
 @login_required
 def swe(request, username, date=None):
+
     context = get_swe(request,username,date)
     if request.method == 'POST':
         return HttpResponseRedirect(swe_post(request, context['swe']).get_full_path())
     else:
-        context['form'] = swe_not_post(context['tmz'])
+        context['form'] = swe_not_post(request)
 
     return render(request, 'swe.html', context=context)
 

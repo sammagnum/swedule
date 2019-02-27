@@ -12,6 +12,10 @@ urlpatterns = [
     path('userhome/', views.userhome, name='userhome'),
     path('teamlead/', views.teamlead, name='teamlead_url'),
     path('team/<slug:team_slug>/',views.team, name='team'),
+    path('team/<slug:team_slug>/<dd-mm-yyyy:date>/', views.team, name='next_week_team'),
+    path('team/<slug:team_slug>/<dd-mm-yyyy:date>/', views.team, name='prev_week_team'),
+    path('team/<slug:team_slug>/<dd-mm-yyyy:date>/', views.team, name='next_day_team'),
+    path('team/<slug:team_slug>/<dd-mm-yyyy:date>/', views.team, name='prev_day_team'),
 
 
     # Add Django site authentication urls (for login, logout, password management)

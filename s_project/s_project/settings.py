@@ -49,8 +49,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    's_app.middleware.tz_middleware.TimezoneMiddleware'
 ]
-
 ROOT_URLCONF = 's_project.urls'
 
 TEMPLATES = [
