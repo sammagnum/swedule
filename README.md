@@ -1,4 +1,5 @@
 # swedule
+need to move a lot of this to git wiki
 Using this to formulate a plan step by step:
 https://nickjanetakis.com/blog/how-to-start-and-finish-any-web-app-project
 
